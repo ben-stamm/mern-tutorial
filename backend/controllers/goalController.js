@@ -1,3 +1,5 @@
+//mongo password = testdatabase123
+
 const asyncHandler = require('express-async-handler')
 
 // @desc Get goals
