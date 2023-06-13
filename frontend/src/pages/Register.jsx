@@ -14,12 +14,13 @@ function Register() {
         password: '',
         password2: '',
     })
-    const {name, email, password, password2} = formData
+
+    const { name, email, password, password2 } = formData
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
 
-    const {user, isLoading, isError, isSuccess, message} = useSelector((state) => state.auth) 
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth) 
 
     useEffect(() => {
         if(isError) {
@@ -29,7 +30,7 @@ function Register() {
             navigate('/')
         }
 
-        dispatch(reset)
+        dispatch(reset())
 
     }, [user, isError, isSuccess, message, navigate, dispatch])
 
@@ -39,6 +40,7 @@ function Register() {
             [e.target.name] : e.target.value,
         }))
     }
+
     const onSubmit = (e) => {
         e.preventDefault()
 
@@ -76,7 +78,7 @@ function Register() {
                         <input type="password" className="form-control" id='password' name="password" value={password} placeholder='Enter your password' onChange={onChange} />
                     </div>
                     <div className="form-group">
-                        <input type="password" className="form-control" id='password2' name="password2" value={name} placeholder='Confirm password' onChange={onChange} />
+                        <input type="password" className="form-control" id='password2' name="password2" value={password2} placeholder='Confirm password' onChange={onChange} />
                     </div>
                     <div className="form-group">
                         <button type="submit" className='btn btn-block'>Submit</button>
